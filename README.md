@@ -13,4 +13,3 @@
 * Java17
 * Maven 3
 * PostgreSQL 16
-

@@ -14,14 +14,17 @@ public class HibernateTaskService implements TaskService {
 
     private final TaskStory taskStory;
 
+    @Override
     public Task save(Task task) {
         return taskStory.save(task);
     }
 
+    @Override
     public boolean update(Task task) {
         return taskStory.update(task);
     }
 
+    @Override
     public boolean deleteById(int id) {
         var fileOptional = findById(id);
         boolean isPresent = fileOptional.isPresent();
@@ -31,14 +34,17 @@ public class HibernateTaskService implements TaskService {
         return isPresent;
     }
 
+    @Override
     public Optional<Task> findById(int id) {
         return taskStory.findById(id);
     }
 
+    @Override
     public Collection<Task> findAll() {
         return taskStory.findAll();
     }
 
+    @Override
     public boolean done(int id) {
         return taskStory.done(id);
     }

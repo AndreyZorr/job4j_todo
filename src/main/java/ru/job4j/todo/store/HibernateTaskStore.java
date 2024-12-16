@@ -16,6 +16,7 @@ public class HibernateTaskStore implements TaskStory {
 
     private final SessionFactory sf;
 
+    @Override
     public Task save(Task task) {
         Session session = sf.openSession();
         try {
@@ -30,6 +31,7 @@ public class HibernateTaskStore implements TaskStory {
         return task;
     }
 
+    @Override
     public boolean update(Task task) {
         Session session = sf.openSession();
         boolean result = false;
@@ -45,6 +47,7 @@ public class HibernateTaskStore implements TaskStory {
         return result;
     }
 
+    @Override
     public boolean deleteById(int id) {
         Session session = sf.openSession();
         boolean result = false;
@@ -62,6 +65,7 @@ public class HibernateTaskStore implements TaskStory {
         return result;
     }
 
+    @Override
     public Optional<Task> findById(int id) {
         Session session = sf.openSession();
         Optional<Task> result = Optional.empty();
@@ -80,6 +84,7 @@ public class HibernateTaskStore implements TaskStory {
         return result;
     }
 
+    @Override
     public List<Task> findAll() {
         Session session = sf.openSession();
         List<Task> result = new ArrayList<>();
@@ -97,6 +102,7 @@ public class HibernateTaskStore implements TaskStory {
         return result;
     }
 
+    @Override
     public boolean done(int id) {
         Session session = sf.openSession();
         boolean result = false;

@@ -17,10 +17,6 @@
   <header th:insert="blocks/header :: header"></header>
   <div class="container">
       <input type="hidden" name="id" th:field="*{id}">
-      <div class="form-check mb-3">
-          <input type="checkbox" name="done" class="form-check-input" id="done">
-          <label class="form-check-label" for="done">Выполнено</label>
-      </div>
       <div class="mb-3">
         <label for="description" class="form-label"><b>Описание</b></label>
         <textarea class="form-control" id="description" name="description" th:field="*{description}" rows="25" placeholder="Опишите задание"></textarea>
@@ -34,6 +30,10 @@
             <div class="col-4"><button class="btn btn-success w-100" type="submit">Обновить</button></div>
           </div>
         </div>
+          <div class="form-check mb-3">
+              <input type="checkbox" name="done" class="form-check-input" id="done">
+              <label class="form-check-label" for="done">Выполнено</label>
+          </div>
       </div>
   </div>
   <footer th:insert="blocks/footer :: footer"></footer>

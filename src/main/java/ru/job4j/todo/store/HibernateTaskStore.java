@@ -30,7 +30,6 @@ public class HibernateTaskStore {
         return task;
     }
 
-
     public boolean updateTitle(Task task) {
         Session session = sf.openSession();
         boolean result = false;

@@ -25,11 +25,9 @@
         <label for="description" class="form-label"><b>Описание</b></label>
         <input type="text" class="form-control" id="description" name="description" placeholder="Опишите задачу">
       </div>
-      <div class="mb-3">
-        <label for="done"><b>Выполнено</b></label>
-        <select class="form-control" id="done" name="done">
-          <option th:each="done : ${done}" th:value="${done.id}" th:text="${done.name}"></option>
-        </select>
+      <div class="form-check mb-3">
+        <input type="checkbox" name="done" class="form-check-input" id="done">
+        <label class="form-check-label" for="done">Опубликовать</label>
       </div>
       <div class="mb-3 row">
         <div class="col-6"></div>

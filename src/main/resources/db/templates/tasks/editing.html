@@ -17,11 +17,9 @@
   <header th:insert="blocks/header :: header"></header>
   <div class="container">
       <input type="hidden" name="id" th:field="*{id}">
-      <div class="mb-3">
-          <label for="tasks"><b>Выполнено</b></label>
-          <select class="form-control" id="tasks" name="tasks">
-              <option th:each="tasks : ${tasks}" th:value="${tasks.id}" th:text="${tasks.name}" th:field="*{tasksId}" th:selected="${tasks.id==tasksId}"></option>
-          </select>
+      <div class="form-check mb-3">
+          <input type="checkbox" name="done" class="form-check-input" id="done">
+          <label class="form-check-label" for="done">Выполнено</label>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label"><b>Описание</b></label>
@@ -37,7 +35,6 @@
           </div>
         </div>
       </div>
-    </form>
   </div>
   <footer th:insert="blocks/footer :: footer"></footer>
 </div>

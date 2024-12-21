@@ -12,10 +12,11 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class HibernateTaskStore {
+public class HibernateTaskStore implements TaskStory {
 
     private final SessionFactory sf;
 
+    @Override
     public Task save(Task task) {
         Session session = sf.openSession();
         try {
@@ -30,26 +31,13 @@ public class HibernateTaskStore {
         return task;
     }
 
-    public boolean updateTitle(Task task) {
+    @Override
+    public boolean update(Task task) {
         Session session = sf.openSession();
         boolean result = false;
         try {
             session.beginTransaction();
             session.update(task.getTitle());
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        } finally {
-            session.close();
-        }
-        return result;
-    }
-
-    public boolean updateDesc(Task task) {
-        Session session = sf.openSession();
-        boolean result = false;
-        try {
-            session.beginTransaction();
             session.update(task.getDescription());
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -60,6 +48,7 @@ public class HibernateTaskStore {
         return result;
     }
 
+    @Override
     public boolean deleteById(int id) {
         Session session = sf.openSession();
         boolean result = false;
@@ -77,6 +66,7 @@ public class HibernateTaskStore {
         return result;
     }
 
+    @Override
     public Optional<Task> findById(int id) {
         Session session = sf.openSession();
         Optional<Task> result = Optional.empty();
@@ -95,6 +85,7 @@ public class HibernateTaskStore {
         return result;
     }
 
+    @Override
     public List<Task> findAll() {
         Session session = sf.openSession();
         List<Task> result = new ArrayList<>();
@@ -112,6 +103,7 @@ public class HibernateTaskStore {
         return result;
     }
 
+    @Override
     public List<Task> findNew() {
         Session session = sf.openSession();
         List<Task> result = new ArrayList<>();
@@ -127,6 +119,7 @@ public class HibernateTaskStore {
         return result;
     }
 
+    @Override
     public boolean done(int id) {
         Session session = sf.openSession();
         boolean result = false;

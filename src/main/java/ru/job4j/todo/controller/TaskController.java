@@ -57,7 +57,7 @@ public class TaskController {
         return "tasks/list";
     }
 
-    @GetMapping("/done{id}")
+    @GetMapping("/done/{id}")
     public String done(Model model, @PathVariable int id) {
         if (!taskService.done(id)) {
             model.addAttribute("message", "Задание с указанным идетнификатором не найдено");

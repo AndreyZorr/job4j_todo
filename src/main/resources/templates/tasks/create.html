@@ -31,10 +31,9 @@
           <div class="row">
             <div class="col-3"><a class="btn btn-danger w-100" th:href="@{/tasks}">Отмена</a></div>
             <div class="col-3"><a class="btn btn-primary w-100" type="submit">Сохранить</a></div>
-              <div class="col-3"><a class="btn btn-success w-100" th:href="@{/tasks/done/{id}(id=${tasks.id})}">Выполнить</a></div>
-            </div>
           </div>
         </div>
+      </div>
     </form>
   </div>
   <footer th:insert="blocks/footer :: footer"></footer>

@@ -72,13 +72,13 @@ public class TaskController {
         return "redirect:/list";
     }
 
-    @GetMapping("/editing/{id}")
-    public String getEditing(Model model, @PathVariable int id) {
+    @GetMapping("/one/{id}")
+    public String getOne(Model model, @PathVariable int id) {
         var taskEditing = taskService.findById(id);
         if (taskEditing.isEmpty()) {
             model.addAttribute("message", "Задание с указанным идентификатором не найдено");
             return "errors/404";
         }
-        return "task/editing";
+        return "task/one";
     }
 }

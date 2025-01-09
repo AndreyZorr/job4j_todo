@@ -81,4 +81,15 @@ public class TaskController {
         }
         return "task/one";
     }
+
+    @GetMapping("/edit/{id}")
+    public String getByIdToEdit(Model model, @PathVariable int id) {
+        var tastOptional = taskService.findById(id);
+        if (tastOptional.isEmpty()) {
+            model.addAttribute("message", "Задача с указанным идентификатором не найдена");
+            return "errors/404";
+        }
+        model.addAttribute("task", tastOptional.get());
+        return "tasks/edit";
+    }
 }

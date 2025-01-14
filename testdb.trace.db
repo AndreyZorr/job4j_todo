@@ -1,3 +1,48 @@
 2024-12-21 21:14:48 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
 SELECT COUNT(*) FROM DATABASECHANGELOGLOCK [42104-214]
+2025-01-14 22:43:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create TABLE todo_user (\000aid SERIAL PRIMARY KEY,\000aname varchar,\000alogin varchar not null,\000apassword varchar not null)\000a[*]);"
+Syntax error in SQL statement "create TABLE todo_user (\000aid SERIAL PRIMARY KEY,\000aname varchar,\000alogin varchar not null,\000apassword varchar not null)\000a[*]);"; SQL statement:
+create TABLE todo_user (
+id SERIAL PRIMARY KEY,
+name varchar,
+login varchar not null,
+password varchar not null)
+); [42000-214]
+2025-01-14 22:45:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create TABLE todo_user (\000aid SERIAL PRIMARY KEY,\000aname TEXT,\000alogin TEXT not null,\000apassword TEXT not null)\000a[*]);"
+Syntax error in SQL statement "create TABLE todo_user (\000aid SERIAL PRIMARY KEY,\000aname TEXT,\000alogin TEXT not null,\000apassword TEXT not null)\000a[*]);"; SQL statement:
+create TABLE todo_user (
+id SERIAL PRIMARY KEY,
+name TEXT,
+login TEXT not null,
+password TEXT not null)
+); [42000-214]
+2025-01-14 22:45:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create TABLE todo_user (\000aid SERIAL PRIMARY KEY,\000aname TEXT,\000alogin TEXT not null,\000apassword TEXT not null)\000a[*]);"
+Syntax error in SQL statement "create TABLE todo_user (\000aid SERIAL PRIMARY KEY,\000aname TEXT,\000alogin TEXT not null,\000apassword TEXT not null)\000a[*]);"; SQL statement:
+create TABLE todo_user (
+id SERIAL PRIMARY KEY,
+name TEXT,
+login TEXT not null,
+password TEXT not null)
+); [42000-214]
+2025-01-14 22:47:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create TABLE [*]user (\000aid SERIAL PRIMARY KEY,\000aname varchar not null,\000alogin varchar unique not null,\000apassword varchar not null)\000a);"; ожидалось "identifier"
+Syntax error in SQL statement "create TABLE [*]user (\000aid SERIAL PRIMARY KEY,\000aname varchar not null,\000alogin varchar unique not null,\000apassword varchar not null)\000a);"; expected "identifier"; SQL statement:
+create TABLE user (
+id SERIAL PRIMARY KEY,
+name varchar not null,
+login varchar unique not null,
+password varchar not null)
+); [42001-214]
+2025-01-14 22:48:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create TABLE [*]user (\000aid SERIAL PRIMARY KEY,\000aname varchar not null,\000alogin varchar unique not null,\000apassword varchar not null\000a);"; ожидалось "identifier"
+Syntax error in SQL statement "create TABLE [*]user (\000aid SERIAL PRIMARY KEY,\000aname varchar not null,\000alogin varchar unique not null,\000apassword varchar not null\000a);"; expected "identifier"; SQL statement:
+create TABLE user (
+id SERIAL PRIMARY KEY,
+name varchar not null,
+login varchar unique not null,
+password varchar not null
+); [42001-214]

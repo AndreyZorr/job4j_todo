@@ -30,7 +30,7 @@ public class UserController {
         var saveUser = userService.create(user);
         if (saveUser.isEmpty()) {
             model.addAttribute("message", "Пользователь с таким логином уже существует");
-            return "errors/register";
+            return "users/register";
         }
         return "redirect:/tasks";
     }

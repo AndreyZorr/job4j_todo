@@ -14,8 +14,13 @@ public class HibernateUserStore implements UserStore {
     private final CrudRepository crudRepository;
 
     public Optional<User> create(User user) {
-        crudRepository.run(session -> session.persist(user));
-        return Optional.of(user);
+        try {
+            crudRepository.run(session -> session.persist(user));
+            return Optional.of(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
     }
 
     public Optional<User> findByLogin(String login) {

@@ -23,6 +23,7 @@
           <th scope="col">Имя</th>
           <th scope="col">Дата создания</th>
           <th scope="col">Состояние</th>
+          <th scope="col">Автор задания</th>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
           <td><a th:text="${tasks.description}" th:href="@{/tasks/{tasksId}(tasksId=${tasks.id})}"></a></td>
           <td th:text="${tasks.created}"/>
           <td th:text="${tasks.done}"/>
+          <td th:text="${tasks.user}"/>
         </tr>
         </tbody>
       </table>

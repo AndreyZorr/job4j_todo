@@ -44,12 +44,14 @@ public class HibernateTaskStore implements TaskStory {
     @Override
     public List<Task> findAll() {
         return crudRepository.query(
-                "From Task t order by t.id ASC", Task.class);
+                "FROM Task t JOIN FETCH t.priority WHERE t.user = :user", Task.class);
     }
 
     @Override
     public List<Task> findNew() {
-        return crudRepository.query("from Task where done = false", Task.class);
+        return crudRepository.query(
+                "FROM Task t JOIN FETCH t.priority  WHERE t.done = false AND t.user = :user",
+                Task.class);
     }
 
     @Override

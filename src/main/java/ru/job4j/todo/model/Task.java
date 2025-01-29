@@ -1,22 +1,19 @@
 package ru.job4j.todo.model;
 
 import lombok.*;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
+@Data
 @Entity
 @Table(name = "tasks")
-@Getter
-@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString
-@AllArgsConstructor
 public class Task {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int id;
 
@@ -31,4 +28,8 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "todo_user_id")
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "priority_id")
+    private Priority priority;
 }

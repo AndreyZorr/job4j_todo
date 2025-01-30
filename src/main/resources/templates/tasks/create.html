@@ -35,9 +35,9 @@
         </div>
         <div class="col-md-2">
           <select name="priority.id" class="form-select" required>
-            <option value="" disabled selected>Выберите приоритет</option>
-            <option value="1">Срочно</option>
-            <option value="2">Нормально</option>
+             th:each="priority :${priorities}"
+             th:value="${priorities.id}"
+             th:text="${priorities.name}"
           </select>
         </div>
       </div>

@@ -8,9 +8,10 @@ import java.util.Collection;
 
 @AllArgsConstructor
 @Repository
-public class HibernatePriorityStory implements PriorityStory{
+public class HibernatePriorityStory implements PriorityStory {
 
     private final CrudRepository crudRepository;
+
     @Override
     public Collection<Priority> findAllPriorities() {
         return crudRepository.query(

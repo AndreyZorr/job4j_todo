@@ -6,6 +6,9 @@ import java.util.Collection;
 import java.util.Optional;
 
 public interface CategoryService {
+
     Collection<Category> findAllCategories();
+
     Optional<Category> findCategoryById(int id);
+
 }

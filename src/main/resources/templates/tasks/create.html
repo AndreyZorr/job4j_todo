@@ -40,6 +40,12 @@
              th:text="${priorities.name}"
           </select>
         </div>
+        <div class="col-md-2">
+          <select name="categories.id" class="form-select" required>
+            th:each="priority :${categories}"
+            th:value="${categories.id}"
+          </select>
+        </div>
       </div>
     </form>
   </div>

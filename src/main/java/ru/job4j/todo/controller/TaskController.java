@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.todo.model.Task;
 import ru.job4j.todo.model.User;
+import ru.job4j.todo.service.CategoryService;
+import ru.job4j.todo.service.PriorityService;
 import ru.job4j.todo.service.TaskService;
 
 @AllArgsConstructor
@@ -14,6 +16,10 @@ import ru.job4j.todo.service.TaskService;
 public class TaskController {
 
     private final TaskService taskService;
+
+    private final PriorityService priorityService;
+
+    private final CategoryService categoryService;
 
     @GetMapping
     public String getAll(Model model) {
@@ -24,6 +30,7 @@ public class TaskController {
     @PostMapping("/update")
     public String update(@ModelAttribute Task task, Model model) {
             boolean isUpdate = taskService.update(task);
+            model.addAttribute("priorities", priorityService.findAllPriorities());
             if (!isUpdate) {
                 model.addAttribute("message", "Задание с указанным идентификатором не найдено");
                 return "errors/404";
@@ -33,6 +40,8 @@ public class TaskController {
 
     @GetMapping("/create")
     public String getCreationPage(Model model) {
+        model.addAttribute("priorities", priorityService.findAllPriorities());
+        model.addAttribute("categories", categoryService.findAllCategories());
         return "task/create";
     }
 
@@ -40,7 +49,7 @@ public class TaskController {
     public String create(@ModelAttribute Task task, Model model, @SessionAttribute User user) {
         task.setUser(user);
         taskService.save(task);
-            return "redirect:/tasks";
+        return "redirect:/tasks";
     }
 
     @GetMapping("/{id}")

@@ -46,3 +46,140 @@ name varchar not null,
 login varchar unique not null,
 password varchar not null
 ); [42001-214]
+2025-02-04 12:09:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+insert into category (name) values ('Работа');
+insert into category (name) values ('Учеба'); [42102-214]
+2025-02-04 12:10:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+insert into category (name) values ('Работа');
+insert into category (name) values ('Учеба'); [42102-214]
+2025-02-04 12:14:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table task_to_categories (\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategories_id int not REFERENCES categories(id)\000aunique (task_id, categories_id)\000a);"; ожидалось "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table task_to_categories (\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategories_id int not REFERENCES categories(id)\000aunique (task_id, categories_id)\000a);"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table task_to_categories (
+id SERIAL PRIMARY KEY,
+task_id int not REFERENCES task(id),
+categories_id int not REFERENCES categories(id)
+unique (task_id, categories_id)
+); [42001-214]
+2025-02-04 12:15:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table task_to_categories (\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategories_id int not REFERENCES category(id)\000aunique (task_id, categories_id)\000a);"; ожидалось "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table task_to_categories (\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategories_id int not REFERENCES category(id)\000aunique (task_id, categories_id)\000a);"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table task_to_categories (
+id SERIAL PRIMARY KEY,
+task_id int not REFERENCES task(id),
+categories_id int not REFERENCES category(id)
+unique (task_id, categories_id)
+); [42001-214]
+2025-02-04 12:17:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table task_to_category (\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategory_id int not REFERENCES category(id)\000aunique (task_id, category_id)\000a);"; ожидалось "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table task_to_category (\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategory_id int not REFERENCES category(id)\000aunique (task_id, category_id)\000a);"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table task_to_category (
+id SERIAL PRIMARY KEY,
+task_id int not REFERENCES task(id),
+category_id int not REFERENCES category(id)
+unique (task_id, category_id)
+); [42001-214]
+2025-02-04 12:18:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table task_to_category\000a(\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategory_id int not REFERENCES category(id)\000aunique (task_id, category_id)\000a);"; ожидалось "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table task_to_category\000a(\000aid SERIAL PRIMARY KEY,\000atask_id int [*]not REFERENCES task(id),\000acategory_id int not REFERENCES category(id)\000aunique (task_id, category_id)\000a);"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table task_to_category
+(
+id SERIAL PRIMARY KEY,
+task_id int not REFERENCES task(id),
+category_id int not REFERENCES category(id)
+unique (task_id, category_id)
+); [42001-214]
+2025-02-04 12:22:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table task_to_category\000a(\000a   id SERIAL PRIMARY KEY,\000a   task_id int [*]not REFERENCES task(id),\000a   category_id int not REFERENCES category(id)\000a   unique (task_id, category_id)\000a);"; ожидалось "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table task_to_category\000a(\000a   id SERIAL PRIMARY KEY,\000a   task_id int [*]not REFERENCES task(id),\000a   category_id int not REFERENCES category(id)\000a   unique (task_id, category_id)\000a);"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table task_to_category
+(
+   id SERIAL PRIMARY KEY,
+   task_id int not REFERENCES task(id),
+   category_id int not REFERENCES category(id)
+   unique (task_id, category_id)
+); [42001-214]
+2025-02-04 12:23:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "TASK" не найдена
+Table "TASK" not found; SQL statement:
+CREATE TABLE task_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    task_id INT NOT NULL REFERENCES task (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (task_id, category_id)
+) [42102-214]
+2025-02-04 12:23:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (task_id, category_id)
+) [42102-214]
+2025-02-04 12:24:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (tasks_id, category_id)
+) [42102-214]
+2025-02-04 12:25:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (tasks_id, category_id)
+) [42102-214]
+2025-02-04 12:26:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (tasks_id, category_id)
+) [42102-214]
+2025-02-04 12:27:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (tasks_id, category_id)
+) [42102-214]
+2025-02-04 12:27:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (tasks_id, category_id)
+) [42102-214]
+2025-02-04 12:28:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" не найдена
+Table "CATEGORY" not found; SQL statement:
+CREATE TABLE tasks_to_category
+(
+    id   SERIAL PRIMARY KEY,
+    tasks_id INT NOT NULL REFERENCES tasks (id),
+    category_id INT NOT NULL REFERENCES category (id),
+    UNIQUE (tasks_id, category_id)
+) [42102-214]

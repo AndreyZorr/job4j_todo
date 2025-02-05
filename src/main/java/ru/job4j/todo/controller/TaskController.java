@@ -27,7 +27,7 @@ public class TaskController {
     @GetMapping
     public String getAll(Model model) {
         model.addAttribute("tasks", taskService.findAll());
-        model.addAttribute("priority",priorityService.findAllPriorities());
+        model.addAttribute("priority", priorityService.findAllPriorities());
         model.addAttribute("category", categoryService.findAllCategories());
         return "tasks/list";
     }

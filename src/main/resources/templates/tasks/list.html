@@ -24,6 +24,7 @@
           <th scope="col">Дата создания</th>
           <th scope="col">Состояние</th>
           <th scope="col">Автор задания</th>
+          <th scope="col">Категория</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
           <td th:text="${tasks.created}"/>
           <td th:text="${tasks.done}"/>
           <td th:text="${tasks.user}"/>
+          <td th:text="${tasks.category}"/>
         </tr>
         </tbody>
       </table>

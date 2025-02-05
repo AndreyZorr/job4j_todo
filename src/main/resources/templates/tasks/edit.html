@@ -33,6 +33,12 @@
                     <option th:each="done : ${done}" th:value="${done.id}" th:text="${done.name}" th:selected="${done.id==task.done.id}"></option>
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="done"><b>Категория</b></label>
+                <select class="form-control" id="category" name="category.id">
+                    <option th:each="category : ${category}" th:value="${category.id}" th:text="${category.name}" th:selected="${category.id==task.category.id}"></option>
+                </select>
+            </div>
             <div class="mb-3 row">
                 <div class="col-6"></div>
                 <div class="col-6">

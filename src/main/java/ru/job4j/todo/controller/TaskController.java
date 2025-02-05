@@ -10,6 +10,9 @@ import ru.job4j.todo.service.CategoryService;
 import ru.job4j.todo.service.PriorityService;
 import ru.job4j.todo.service.TaskService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @Controller
 @RequestMapping("/tasks")
@@ -24,6 +27,8 @@ public class TaskController {
     @GetMapping
     public String getAll(Model model) {
         model.addAttribute("tasks", taskService.findAll());
+        model.addAttribute("priority",priorityService.findAllPriorities());
+        model.addAttribute("category", categoryService.findAllCategories());
         return "tasks/list";
     }
 
@@ -46,8 +51,10 @@ public class TaskController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Task task, Model model, @SessionAttribute User user) {
+    public String create(@ModelAttribute Task task, Model model, @SessionAttribute User user,
+                         @RequestParam(required = false) List<Integer> categoriesId) {
         task.setUser(user);
+        task.setCategories(new ArrayList<>(categoryService.findCategoryById(categoriesId)));
         taskService.save(task);
         return "redirect:/tasks";
     }

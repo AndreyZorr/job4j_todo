@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 import ru.job4j.todo.model.Category;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
@@ -22,11 +22,11 @@ public class HibernateCategoryStory implements CategoryStory {
     }
 
     @Override
-    public List<Category> findCategoryById(List<Integer> categoriesId) {
-        return crudRepository.query(
+    public Optional<Category> findCategoryById(int id) {
+        return crudRepository.optional(
                 "FROM Category WHERE id = :fId",
                 Category.class,
-                Map.of("fId", categoriesId)
+                Map.of("fId", id)
         );
     }
 }

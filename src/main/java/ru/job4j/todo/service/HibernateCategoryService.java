@@ -6,7 +6,7 @@ import ru.job4j.todo.model.Category;
 import ru.job4j.todo.store.CategoryStory;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -20,7 +20,7 @@ public class HibernateCategoryService implements CategoryService {
     }
 
     @Override
-    public List<Category> findCategoryById(List<Integer> categoriesId) {
-        return categoryStory.findCategoryById(categoriesId);
+    public Optional<Category> findCategoryById(int id) {
+        return categoryStory.findCategoryById(id);
     }
 }

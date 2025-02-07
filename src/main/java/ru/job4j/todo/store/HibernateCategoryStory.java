@@ -24,7 +24,7 @@ public class HibernateCategoryStory implements CategoryStory {
     @Override
     public Optional<Category> findCategoryById(int id) {
         return crudRepository.optional(
-                "FROM Category WHERE id = :fId",
+                "FROM Category c WHERE c.id IN :fId",
                 Category.class,
                 Map.of("fId", id)
         );

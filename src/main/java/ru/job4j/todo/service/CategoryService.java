@@ -9,5 +9,5 @@ public interface CategoryService {
 
     Collection<Category> findAllCategories();
 
-    Optional<Category> findCategoryById(int id);
+    Optional<Category> findCategoryById(Optional<Integer> categoryId);
 }

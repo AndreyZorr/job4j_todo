@@ -22,11 +22,11 @@ public class HibernateCategoryStory implements CategoryStory {
     }
 
     @Override
-    public Optional<Category> findCategoryById(int id) {
+    public Optional<Category> findCategoryById(Optional<Integer> categoryId) {
         return crudRepository.optional(
                 "FROM Category c WHERE c.id IN :fId",
                 Category.class,
-                Map.of("fId", id)
+                Map.of("fId", categoryId)
         );
     }
 }

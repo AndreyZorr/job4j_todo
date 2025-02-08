@@ -20,7 +20,7 @@ public class HibernateCategoryService implements CategoryService {
     }
 
     @Override
-    public Optional<Category> findCategoryById(int id) {
-        return categoryStory.findCategoryById(id);
+    public Optional<Category> findCategoryById(Optional<Integer> categoryId) {
+        return categoryStory.findCategoryById(categoryId);
     }
 }

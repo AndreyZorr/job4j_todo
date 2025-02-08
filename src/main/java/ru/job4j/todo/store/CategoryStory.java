@@ -9,5 +9,5 @@ public interface CategoryStory {
 
     Collection<Category> findAllCategories();
 
-    Optional<Category> findCategoryById(int id);
+    Optional<Category> findCategoryById(Optional<Integer> categoryId);
 }

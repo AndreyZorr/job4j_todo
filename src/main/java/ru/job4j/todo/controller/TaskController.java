@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.job4j.todo.model.Category;
 import ru.job4j.todo.model.Task;
 import ru.job4j.todo.model.User;
 import ru.job4j.todo.service.CategoryService;
 import ru.job4j.todo.service.PriorityService;
 import ru.job4j.todo.service.TaskService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -52,9 +52,9 @@ public class TaskController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute Task task, Model model, @SessionAttribute User user,
-                         @RequestParam(required = false)List<Category> categoriesId) {
+                         @RequestParam(required = false) List<Integer> categoriesId) {
         task.setUser(user);
-        task.setCategories(categoriesId);
+        task.setCategories(new ArrayList<>(categoryService.findCategoryById(categoriesId)));
         taskService.save(task);
         return "redirect:/tasks";
     }

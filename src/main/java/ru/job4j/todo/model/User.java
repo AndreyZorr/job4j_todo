@@ -2,6 +2,7 @@ package ru.job4j.todo.model;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -22,4 +23,7 @@ public class User {
     private String login;
 
     private  String password;
+
+    @Column(name = "user_zone")
+    private String timezone;
 }

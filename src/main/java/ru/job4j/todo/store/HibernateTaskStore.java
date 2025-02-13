@@ -22,7 +22,12 @@ public class HibernateTaskStore implements TaskStory {
 
     @Override
     public boolean update(Task task) {
-        crudRepository.run(session -> session.merge(task));
+        crudRepository.run("UPDATE Task t SET title = :fTitle, description = :fDescription"
+                + "priority = :fPriority WHERE id = :fId",
+                Map.of("fTitle", task.getTitle(),
+                        "fDescription", task.getDescription(),
+                        "fPriority", task.getPriority(),
+                        "fId", task.getId()));
         return true;
     }
 

@@ -9,7 +9,9 @@ import ru.job4j.todo.model.User;
 import ru.job4j.todo.service.CategoryService;
 import ru.job4j.todo.service.PriorityService;
 import ru.job4j.todo.service.TaskService;
+import ru.job4j.todo.setting.TimeZoneConverter;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +27,11 @@ public class TaskController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String getAll(Model model) {
-        model.addAttribute("tasks", taskService.findAll());
-        model.addAttribute("priority", priorityService.findAllPriorities());
-        model.addAttribute("category", categoryService.findAllCategories());
+    public String getPageList(Model model, HttpSession session) {
+        var tasks = taskService.findAll();
+        User user = (User) session.getAttribute("user");
+        TimeZoneConverter.timeZoneConverter(tasks, user);
+        model.addAttribute("tasks", tasks);
         return "tasks/list";
     }
 
@@ -81,7 +84,7 @@ public class TaskController {
             model.addAttribute("message", "Задание с указанным идетнификатором не найдено");
             return "errors/404";
         }
-        return getAll(model);
+        return "redirect:/";
     }
 
     @GetMapping("/new")

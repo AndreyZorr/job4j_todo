@@ -183,3 +183,8 @@ CREATE TABLE tasks_to_category
     category_id INT NOT NULL REFERENCES category (id),
     UNIQUE (tasks_id, category_id)
 ) [42102-214]
+2025-02-13 23:24:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table todo_user\000aadd column user_zone int [*]varchar;"
+Syntax error in SQL statement "alter table todo_user\000aadd column user_zone int [*]varchar;"; SQL statement:
+alter table todo_user
+add column user_zone int varchar; [42000-214]
